@@ -10,7 +10,7 @@ const RecipeContent = () => {
         Most Popular Recipes
       </h2>
       <p className="text-center mt-4 md:px-36">
-        Welcome to our Most Recipes section, where you can find an incredible
+        Welcome to our Recipes section, where you can find an incredible
         selection of our most popular dishes from around the world. From classic
         comfort foods to exotic cuisines, we've got something to satisfy every
         craving.

@@ -47,14 +47,6 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to="/chefs"
-                  className={({ isActive }) => (isActive ? "text-red-600" : "")}
-                >
-                  Chef
-                </NavLink>
-              </li>
-              <li>
-                <NavLink
                   to="/blog"
                   className={({ isActive }) => (isActive ? "text-red-600" : "")}
                 >
@@ -74,12 +66,6 @@ const Header = () => {
               className={({ isActive }) => (isActive ? "text-red-600" : "")}
             >
               Home
-            </NavLink>
-            <NavLink
-              to="/chefs"
-              className={({ isActive }) => (isActive ? "text-red-600" : "")}
-            >
-              Chef
             </NavLink>
             <NavLink
               to="/blog"
