@@ -19,6 +19,7 @@ const Login = () => {
               name="email"
               placeholder="Type Your Email"
               className="border-b-2 w-full outline-none py-2"
+              required
             />
           </div>
           <div className="mt-6">
@@ -31,6 +32,7 @@ const Login = () => {
               name="password"
               placeholder="Type Your Password"
               className="border-b-2 w-full outline-none py-2"
+              required
             />
           </div>
           <p className="font-semibold mt-4 text-end text-slate-400">
