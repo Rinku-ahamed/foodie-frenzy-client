@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 
@@ -7,6 +7,7 @@ const Register = () => {
   const { createUser } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -24,6 +25,7 @@ const Register = () => {
         console.log(user);
         updateUserInfo(user, name, photoUrl);
         setSuccess("Thanks for registration!!");
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error);

@@ -1,12 +1,15 @@
 import React, { useContext, useState } from "react";
 import { FaGooglePlusG, FaGithub } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
-  const { loginUser } = useContext(AuthContext);
+  const { loginUser, googleLogin, githubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-
+  const navigate = useNavigate();
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -20,10 +23,30 @@ const Login = () => {
         const user = result.user;
         console.log(user);
         setSuccess("Thanks for login!!");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
         setError("Email address or password doesn't match!!");
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleLogin(googleProvider)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+  const handleGithubLogin = () => {
+    githubLogin(githubProvider)
+      .then((result) => {
+        console.log(result);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
   return (
@@ -77,10 +100,16 @@ const Login = () => {
         </p>
         <p className="text-center mt-6">Or Sign Up Using</p>
         <div className="mt-6 flex justify-center gap-4 mb-6">
-          <span className="bg-orange-600 px-2 py-2 text-white rounded-full cursor-pointer">
+          <span
+            className="bg-orange-600 px-2 py-2 text-white rounded-full cursor-pointer"
+            onClick={handleGoogleLogin}
+          >
             <FaGooglePlusG />
           </span>
-          <span className="bg-red-600 px-2 py-2 text-white rounded-full cursor-pointer">
+          <span
+            className="bg-red-600 px-2 py-2 text-white rounded-full cursor-pointer"
+            onClick={handleGithubLogin}
+          >
             <FaGithub />
           </span>
         </div>

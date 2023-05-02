@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Banner from "../../assets/banner.jpg";
 import ChefCard from "../../shared/ChefCard/ChefCard";
+import RecipeContent from "../../shared/RecipeContent/RecipeContent";
 const Home = () => {
   const [chefs, setChefs] = useState([]);
 
@@ -21,8 +22,8 @@ const Home = () => {
       >
         <div className="container mx-auto px-10">
           <div className="md:w-3/6 py-40">
-            <h2 className="text-7xl font-bold text-white">
-              Taste the world with our expert{" "}
+            <h2 className="text-5xl md:text-7xl font-bold text-white">
+              Taste the world with our expert
               <span className="text-orange-600">chefs</span>
             </h2>
             <p className="text-slate-200 mt-6">
@@ -33,12 +34,14 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="container mx-auto px-10 mt-10"></section>
+
       {/* Main content */}
       <section className="container mx-auto px-10 mt-10">
-        <h2 className="text-4xl text-center font-bold">
+        <h2 className="text-3xl md:text-5xl text-center font-bold">
           Get to Know Our Talented Chefs
         </h2>
-        <p className="text-center mt-4 px-36">
+        <p className="text-center mt-4 md:px-36">
           Discover the masterminds behind our delicious recipes. Our team of
           talented chefs are passionate about creating mouth-watering dishes
           that are sure to impress. From classic comfort foods to exotic
@@ -51,6 +54,8 @@ const Home = () => {
           ))}
         </div>
       </section>
+      {/* Our Most popular recipes area */}
+      <RecipeContent></RecipeContent>
     </div>
   );
 };
