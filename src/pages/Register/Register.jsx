@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import { updateProfile } from "firebase/auth";
 
 const Register = () => {
   const { createUser } = useContext(AuthContext);
-
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const handleRegister = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -14,12 +16,24 @@ const Register = () => {
     const photoUrl = form.photoUrl.value;
     console.log(name, email, password, photoUrl);
     form.reset();
-
+    setError("");
+    setSuccess("");
     createUser(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        updateUserInfo(user, name, photoUrl);
+        setSuccess("Thanks for registration!!");
       })
+      .catch((error) => {
+        console.log(error);
+        setError(error.message);
+      });
+  };
+
+  const updateUserInfo = (user, name, photoUrl) => {
+    updateProfile(user, { displayName: name, photoURL: photoUrl })
+      .then(() => {})
       .catch((error) => {
         console.log(error);
       });
@@ -94,6 +108,8 @@ const Register = () => {
             Sign in
           </Link>
         </p>
+        <p className="mt-4 text-lg text-red-500 font-semibold">{error}</p>
+        <p className="mt-4 text-lg text-green-500 font-semibold">{success}</p>
       </div>
     </div>
   );

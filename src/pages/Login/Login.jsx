@@ -1,11 +1,35 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import { FaGooglePlusG, FaGithub } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
 const Login = () => {
+  const { loginUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+
+  const handleLogin = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    setError("");
+    setSuccess("");
+    loginUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setSuccess("Thanks for login!!");
+      })
+      .catch((error) => {
+        console.log(error);
+        setError("Email address or password doesn't match!!");
+      });
+  };
   return (
     <div className="mt-10 mb-20">
       <div className="w-[420px] mx-auto shadow-xl px-10 py-4 border rounded-lg">
-        <form>
+        <form onSubmit={handleLogin}>
           <h2 className="text-center text-2xl font-bold mb-10 border-b pb-4">
             Login Page
           </h2>
@@ -43,6 +67,8 @@ const Login = () => {
             Login
           </button>
         </form>
+        <p className="mt-4 text-lg text-red-500 font-semibold">{error}</p>
+        <p className="mt-4 text-lg text-green-500 font-semibold">{success}</p>
         <p className="mt-3 text-center">
           Not a Member?
           <Link to="/register" className="text-orange-700">
