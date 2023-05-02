@@ -4,7 +4,7 @@ import { Link, NavLink } from "react-router-dom";
 const Header = () => {
   const user = null;
   return (
-    <div className="container mx-auto px-10">
+    <div className="container mx-auto px-10 py-4">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
