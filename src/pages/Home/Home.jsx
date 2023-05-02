@@ -34,7 +34,7 @@ const Home = () => {
       </section>
 
       {/* Main content */}
-      {/* <section className="container mx-auto px-10 mt-10">
+      <section className="container mx-auto px-10 mt-10">
         <h2 className="text-4xl text-center font-bold">
           Get to Know Our Talented Chefs
         </h2>
@@ -50,7 +50,7 @@ const Home = () => {
             <ChefCard key={chef.id} chef={chef}></ChefCard>
           ))}
         </div>
-      </section> */}
+      </section>
     </div>
   );
 };
