@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
+  const user = null;
   return (
     <div className="container mx-auto px-10">
       <div className="navbar bg-base-100">
@@ -53,12 +54,12 @@ const Header = () => {
               </li>
             </ul>
           </div>
-          <Link to="/" className="normal-case text-2xl font-bold">
-            Foodie <span className="text-amber-500">Frenzy</span>
+          <Link to="/" className="normal-case text-3xl font-bold">
+            Foodie <span className="text-red-600">Frenzy</span>
           </Link>
         </div>
         <div className="navbar-end hidden lg:flex">
-          <ul className="menu menu-horizontal gap-8 px-1">
+          <ul className="menu menu-horizontal gap-8 px-1 text-xl">
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? "text-red-600" : "")}
@@ -78,17 +79,23 @@ const Header = () => {
               Blog
             </NavLink>
           </ul>
-          <div className="ms-5">
-            <Link to="/login">
-              <button className="bg-amber-500 px-4 py-1 rounded-md text-white me-4">
-                Login
-              </button>
-            </Link>
-            <Link to="/register">
-              <button className="bg-amber-800 px-4 py-1 rounded-md text-white">
+          <div className="ms-6">
+            {user ? (
+              <div>
+                <img src="" alt="" />
+              </div>
+            ) : (
+              <Link to="/login">
+                <button className="bg-red-600 px-6 py-2 rounded-md text-white me-4 font-bold">
+                  Login
+                </button>
+              </Link>
+            )}
+            {/* <Link to="/register">
+              <button className="bg-amber-800 px-6 py-2 rounded-md text-white font-bold">
                 Register
               </button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
