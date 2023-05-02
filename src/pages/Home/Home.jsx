@@ -45,7 +45,7 @@ const Home = () => {
           cuisine, explore their profiles.
         </p>
 
-        <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
           {chefs.map((chef) => (
             <ChefCard key={chef.id} chef={chef}></ChefCard>
           ))}
