@@ -17,26 +17,46 @@ const Category = () => {
         the perfect dish for any occasion.
       </p>
 
-      <div className="mt-10 grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="mt-14 grid md:grid-cols-3 lg:grid-cols-5 gap-6">
         <div className="text-center">
-          <img src={CatImg1} alt="" className="rounded-full" />
-          <h3 className="mt-2 font-semibold text-xl">Appetizers</h3>
+          <img
+            src={CatImg1}
+            alt=""
+            className="rounded-full w-4/6 mx-auto lg:w-full"
+          />
+          <h3 className="mt-2 font-semibold text-2xl">Appetizers</h3>
         </div>
         <div className="text-center">
-          <img src={CatImg2} alt="" className="rounded-full" />
-          <h3 className="mt-2 font-semibold text-xl">Beef</h3>
+          <img
+            src={CatImg2}
+            alt=""
+            className="rounded-full w-4/6 mx-auto lg:w-full"
+          />
+          <h3 className="mt-2 font-semibold text-2xl">Beef</h3>
         </div>
         <div className="text-center">
-          <img src={CatImg3} alt="" className="rounded-full" />
-          <h3 className="mt-2 font-semibold text-xl">Chicken</h3>
+          <img
+            src={CatImg3}
+            alt=""
+            className="rounded-full w-4/6 mx-auto lg:w-full"
+          />
+          <h3 className="mt-2 font-semibold text-2xl">Chicken</h3>
         </div>
         <div className="text-center">
-          <img src={CatImg4} alt="" className="rounded-full" />
-          <h3 className="mt-2 font-semibold text-xl">Vegetarian</h3>
+          <img
+            src={CatImg4}
+            alt=""
+            className="rounded-full w-4/6 mx-auto lg:w-full"
+          />
+          <h3 className="mt-2 font-semibold text-2xl">Vegetarian</h3>
         </div>
         <div className="text-center">
-          <img src={CatImg5} alt="" className="rounded-full" />
-          <h3 className="mt-2 font-semibold text-xl">Desserts</h3>
+          <img
+            src={CatImg5}
+            alt=""
+            className="rounded-full w-4/6 mx-auto lg:w-full"
+          />
+          <h3 className="mt-2 font-semibold text-2xl">Desserts</h3>
         </div>
       </div>
     </section>

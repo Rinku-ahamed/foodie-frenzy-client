@@ -24,6 +24,7 @@ const Register = () => {
         const user = result.user;
         updateUserInfo(user, name, photoUrl);
         setSuccess("Thanks for registration!!");
+        navigate("/login");
       })
       .catch((error) => {
         console.log(error);

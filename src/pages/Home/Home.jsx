@@ -3,7 +3,7 @@ import Banner from "../../assets/banner.jpg";
 import ChefCard from "../../shared/ChefCard/ChefCard";
 import RecipeContent from "../../shared/RecipeContent/RecipeContent";
 import Category from "../../shared/Category/Category";
-
+import { Spinner } from "react-spinners-css";
 const Home = () => {
   const [chefs, setChefs] = useState([]);
   useEffect(() => {
@@ -49,10 +49,20 @@ const Home = () => {
           cuisine, explore their profiles.
         </p>
 
-        <div className="mt-6 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {chefs.map((chef) => (
-            <ChefCard key={chef.id} chef={chef}></ChefCard>
-          ))}
+        <div className="mt-6">
+          {chefs.length == 0 ? (
+            <div className="w-96 mx-auto">
+              <Spinner />
+              <Spinner size={32} />
+              <Spinner size={16} />
+            </div>
+          ) : (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {chefs.map((chef) => (
+                <ChefCard key={chef.id} chef={chef}></ChefCard>
+              ))}
+            </div>
+          )}
         </div>
       </section>
       {/* Our Most popular recipes area */}
