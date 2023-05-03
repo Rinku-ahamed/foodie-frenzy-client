@@ -3,20 +3,14 @@ import Banner from "../../assets/banner.jpg";
 import ChefCard from "../../shared/ChefCard/ChefCard";
 import RecipeContent from "../../shared/RecipeContent/RecipeContent";
 import Category from "../../shared/Category/Category";
-import { useNavigation } from "react-router-dom";
+
 const Home = () => {
   const [chefs, setChefs] = useState([]);
-  const navigation = useNavigation();
-
   useEffect(() => {
     fetch("https://foodie-frenzy-server-rinku-ahamed.vercel.app/chefs")
       .then((res) => res.json())
       .then((data) => setChefs(data));
   }, []);
-  if (navigation.state === "loading") {
-    console.log("loading");
-    return;
-  }
   return (
     <div>
       {/* Banner area */}
@@ -27,11 +21,11 @@ const Home = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="container mx-auto px-10">
-          <div className="md:w-3/6 py-40">
+        <div className="container mx-auto px-6 md:px-10">
+          <div className="md:w-3/6 py-24 md:py-40">
             <h2 className="text-5xl md:text-7xl font-bold text-white">
               Taste the world with our expert
-              <span className="text-orange-600"> chefs</span>
+              <span className="text-red-600"> chefs</span>
             </h2>
             <p className="text-slate-200 mt-6">
               Delight your taste buds with our extensive collection of
@@ -44,7 +38,7 @@ const Home = () => {
       <Category></Category>
 
       {/* Main content */}
-      <section className="container mx-auto px-10 mt-20">
+      <section className="container mx-auto px-6 md:px-10 mt-20">
         <h2 className="text-3xl md:text-5xl text-center font-bold">
           Get to Know Our Talented Chefs
         </h2>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="bg-slate-900">
-      <footer className="container mx-auto grid  md:grid-cols-3 gap-10 p-10  text-base-content">
+      <footer className="container mx-auto grid  md:grid-cols-3 gap-10 p-6 md:p-10  text-base-content">
         <div>
           <Link to="/" className="normal-case text-3xl font-bold text-white">
             Foodie <span className="text-red-600">Frenzy</span>
@@ -34,7 +34,7 @@ const Footer = () => {
               27 West 24th St New York, NY 10010
             </a>
             <a className="link link-hover">877 . 485 . 0700</a>
-            <a className="link link-hover">hello@pbminfotech.com</a>
+            <a className="link link-hover">hello@examle.com</a>
           </ul>
         </div>
       </footer>

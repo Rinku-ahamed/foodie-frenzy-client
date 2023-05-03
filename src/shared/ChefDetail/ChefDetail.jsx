@@ -25,7 +25,7 @@ const ChefDetail = () => {
           Chef Details
         </h2>
       </div>
-      <section className="container mx-auto px-10 my-20">
+      <section className="container mx-auto px-6 md:px-10 my-20">
         <div className="md:w-[750px] mx-auto md:flex items-center gap-10 shadow-xl rounded-xl">
           <img
             src={chef_profile}

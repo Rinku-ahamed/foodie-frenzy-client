@@ -22,10 +22,8 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const user = result.user;
-        console.log(user);
         updateUserInfo(user, name, photoUrl);
         setSuccess("Thanks for registration!!");
-        navigate("/login");
       })
       .catch((error) => {
         console.log(error);
@@ -42,7 +40,7 @@ const Register = () => {
   };
   return (
     <div className="mt-10 mb-20">
-      <div className="w-[420px] mx-auto shadow-xl px-10 py-4 border rounded-lg">
+      <div className="w-[420px] mx-auto shadow-xl px-6 md:px-10 py-4 border rounded-lg">
         <form onSubmit={handleRegister}>
           <h2 className="text-center text-2xl font-bold mb-10 border-b pb-4">
             Register Page

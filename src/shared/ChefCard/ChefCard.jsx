@@ -2,12 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ExperienceImg from "../../assets/rating.png";
 import LikesImg from "../../assets/like.png";
+import CommonBtn from "../CommonBtn/CommonBtn";
 const ChefCard = ({ chef }) => {
   const { chef_profile, likes, name, id, description, experience } = chef;
   return (
     <div className="card shadow-lg">
       <figure className="px-6 pt-10">
-        <img src={chef_profile} className="rounded-xl w-full h-80" />
+        <img
+          src={chef_profile}
+          className="rounded-xl w-full h-80 object-cover"
+        />
       </figure>
       <div className="card-body pt-5 items-center text-center">
         <h2 className="card-title text-2xl">{name}</h2>
@@ -24,7 +28,7 @@ const ChefCard = ({ chef }) => {
         </div>
         <div className="card-actions mt-4">
           <Link to={`/chef/${id}`}>
-            <button className="btn btn-primary">View Details</button>
+            <CommonBtn>View Recipes</CommonBtn>
           </Link>
         </div>
       </div>

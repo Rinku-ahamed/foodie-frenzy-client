@@ -5,7 +5,7 @@ import Recipe3 from "../../assets/r3.webp";
 import Recipe4 from "../../assets/r4.webp";
 const RecipeContent = () => {
   return (
-    <section className="container mx-auto px-10 mt-20 mb-16">
+    <section className="container mx-auto px-6 md:px-10 mt-20 mb-16">
       <h2 className="text-3xl md:text-5xl text-center font-bold">
         Most Popular Recipes
       </h2>

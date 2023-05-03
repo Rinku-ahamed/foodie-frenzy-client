@@ -11,6 +11,7 @@ import app from "../firebase/firebase.config";
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children }) => {
   const [user, setUSer] = useState("");
+  const [loading, setLoading] = useState(true);
   const auth = getAuth(app);
 
   const createUser = (email, password) => {
@@ -34,6 +35,7 @@ const AuthProvider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUSer(currentUser);
+      setLoading(false);
     });
     return () => unsubscribe();
   }, []);
@@ -44,6 +46,7 @@ const AuthProvider = ({ children }) => {
     logOut,
     googleLogin,
     githubLogin,
+    loading,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

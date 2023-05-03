@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import CommonBtn from "../CommonBtn/CommonBtn";
 
 const Header = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -12,7 +13,7 @@ const Header = () => {
       });
   };
   return (
-    <div className="container mx-auto px-10 py-4">
+    <div className="container mx-auto px-6 md:px-10 py-4">
       <div className="navbar bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
@@ -39,7 +40,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/"
-                  className={({ isActive }) => (isActive ? "text-red-600" : "")}
+                  className={({ isActive }) =>
+                    isActive ? "text-red-600 font-bold" : ""
+                  }
                 >
                   Home
                 </NavLink>
@@ -47,7 +50,9 @@ const Header = () => {
               <li>
                 <NavLink
                   to="/blog"
-                  className={({ isActive }) => (isActive ? "text-red-600" : "")}
+                  className={({ isActive }) =>
+                    isActive ? "text-red-600 font-bold" : ""
+                  }
                 >
                   Blog
                 </NavLink>
@@ -62,13 +67,17 @@ const Header = () => {
           <ul className="menu menu-horizontal gap-8 px-1 text-xl">
             <NavLink
               to="/"
-              className={({ isActive }) => (isActive ? "text-red-600" : "")}
+              className={({ isActive }) =>
+                isActive ? "text-red-600 font-bold" : ""
+              }
             >
               Home
             </NavLink>
             <NavLink
               to="/blog"
-              className={({ isActive }) => (isActive ? "text-red-600" : "")}
+              className={({ isActive }) =>
+                isActive ? "text-red-600 font-bold" : ""
+              }
             >
               Blog
             </NavLink>
@@ -82,18 +91,13 @@ const Header = () => {
                   className="w-10 h-100 rounded-full"
                   title={user?.displayName}
                 />
-                <button
-                  onClick={handleLogOut}
-                  className="bg-red-600 px-6 py-2 rounded-md text-white me-4 font-bold"
-                >
-                  Logout
-                </button>
+                <span onClick={handleLogOut}>
+                  <CommonBtn>Logout</CommonBtn>
+                </span>
               </div>
             ) : (
               <Link to="/login">
-                <button className="bg-red-600 px-6 py-2 rounded-md text-white me-4 font-bold">
-                  Login
-                </button>
+                <CommonBtn>Login</CommonBtn>
               </Link>
             )}
           </div>

@@ -6,6 +6,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import ChefDetail from "../shared/ChefDetail/ChefDetail";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import PrivateRouter from "../PrivateRouter/PrivateRouter";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: "chef/:id",
-        element: <ChefDetail></ChefDetail>,
+        element: (
+          <PrivateRouter>
+            <ChefDetail></ChefDetail>
+          </PrivateRouter>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://foodie-frenzy-server-rinku-ahamed.vercel.app/chef/${params.id}`

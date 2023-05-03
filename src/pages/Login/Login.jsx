@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { FaGooglePlusG, FaGithub } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 const Login = () => {
@@ -8,6 +8,9 @@ const Login = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname;
+  console.log(location);
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
   const handleLogin = (event) => {
@@ -20,10 +23,8 @@ const Login = () => {
     setSuccess("");
     loginUser(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
         setSuccess("Thanks for login!!");
-        navigate("/");
+        navigate(from);
       })
       .catch((error) => {
         console.log(error);
@@ -34,7 +35,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin(googleProvider)
       .then((result) => {
-        console.log(result.user);
+        location("/");
       })
       .catch((error) => {
         console.log(error);
@@ -43,7 +44,7 @@ const Login = () => {
   const handleGithubLogin = () => {
     githubLogin(githubProvider)
       .then((result) => {
-        console.log(result);
+        location("/");
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +52,7 @@ const Login = () => {
   };
   return (
     <div className="mt-10 mb-20">
-      <div className="w-[420px] mx-auto shadow-xl px-10 py-4 border rounded-lg">
+      <div className="w-[420px] mx-auto shadow-xl px-6 md:px-10 py-4 border rounded-lg">
         <form onSubmit={handleLogin}>
           <h2 className="text-center text-2xl font-bold mb-10 border-b pb-4">
             Login Page

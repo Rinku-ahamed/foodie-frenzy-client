@@ -6,7 +6,7 @@ import CatImg4 from "../../assets/c4.jpg";
 import CatImg5 from "../../assets/c4.jpg";
 const Category = () => {
   return (
-    <section className="container mx-auto px-10 mt-16">
+    <section className="container mx-auto px-6 md:px-10 mt-16">
       <h2 className="text-3xl md:text-5xl text-center font-bold">
         Recipe Categories
       </h2>
