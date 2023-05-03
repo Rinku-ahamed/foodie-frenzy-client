@@ -4,9 +4,10 @@ import Banner from "../../assets/page-banner.jpg";
 import ExperienceImg from "../../assets/rating.png";
 import LikesImg from "../../assets/like.png";
 import Recipes from "../../assets/mixing.png";
+import RecipeCard from "../RecipeCard/RecipeCard";
 const ChefDetail = () => {
   const singleData = useLoaderData();
-  console.log(singleData);
+  // console.log(singleData);
   const {
     chef_profile,
     likes,
@@ -14,6 +15,7 @@ const ChefDetail = () => {
     description,
     experience,
     number_of_recipes,
+    recipes,
   } = singleData;
   return (
     <div>
@@ -24,11 +26,11 @@ const ChefDetail = () => {
         </h2>
       </div>
       <section className="container mx-auto px-10 my-20">
-        <div className="w-[750px] mx-auto md:flex items-center gap-10 shadow-xl rounded-xl">
+        <div className="md:w-[750px] mx-auto md:flex items-center gap-10 shadow-xl rounded-xl">
           <img
             src={chef_profile}
             alt=""
-            className="md:w-80 h-80 rounded-s-xl"
+            className="w-full md:w-80 h-80 rounded-s-xl"
           />
           <div className="pe-10">
             <h2 className="text-2xl font-bold">{name}</h2>
@@ -46,6 +48,12 @@ const ChefDetail = () => {
               {number_of_recipes}
             </p>
           </div>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6 mt-20">
+          {recipes.map((recipe, index) => (
+            <RecipeCard key={index} recipe={recipe}></RecipeCard>
+          ))}
         </div>
       </section>
     </div>

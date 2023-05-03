@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import ExperienceImg from "../../assets/rating.png";
 import LikesImg from "../../assets/like.png";
 const ChefCard = ({ chef }) => {
-  console.log(chef);
   const { chef_profile, likes, name, id, description, experience } = chef;
   return (
     <div className="card shadow-lg">

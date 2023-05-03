@@ -3,14 +3,20 @@ import Banner from "../../assets/banner.jpg";
 import ChefCard from "../../shared/ChefCard/ChefCard";
 import RecipeContent from "../../shared/RecipeContent/RecipeContent";
 import Category from "../../shared/Category/Category";
+import { useNavigation } from "react-router-dom";
 const Home = () => {
   const [chefs, setChefs] = useState([]);
+  const navigation = useNavigation();
 
   useEffect(() => {
-    fetch("http://localhost:5000/chefs")
+    fetch("https://foodie-frenzy-server-rinku-ahamed.vercel.app/chefs")
       .then((res) => res.json())
       .then((data) => setChefs(data));
   }, []);
+  if (navigation.state === "loading") {
+    console.log("loading");
+    return;
+  }
   return (
     <div>
       {/* Banner area */}
