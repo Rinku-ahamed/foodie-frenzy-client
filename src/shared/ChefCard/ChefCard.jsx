@@ -5,18 +5,32 @@ import LikesImg from "../../assets/like.png";
 import CommonBtn from "../CommonBtn/CommonBtn";
 import LazyLoad from "react-lazy-load";
 const ChefCard = ({ chef }) => {
-  const { chef_profile, likes, name, id, description, experience } = chef;
+  const {
+    chef_profile,
+    likes,
+    name,
+    id,
+    description,
+    experience,
+    number_of_recipes,
+  } = chef;
   return (
     <div className="card shadow-lg">
-      <figure className="px-6 pt-10">
-        <LazyLoad height={340}>
-          <img src={chef_profile} className="rounded-t" />
+      <figure className="sm:px-6 pt-10 relative">
+        <LazyLoad>
+          <img
+            src={chef_profile}
+            className="rounded-t w-full h-80 object-cover"
+          />
         </LazyLoad>
+        <span className="absolute bottom-0 z-10 bg-black text-white px-3 py-1 rounded-md text-[14px]">
+          Available Recipes {number_of_recipes}
+        </span>
       </figure>
       <div className="card-body pt-5 items-center text-center">
         <h2 className="card-title text-2xl">{name}</h2>
         <p>{description.slice(0, 80)}...</p>
-        <div className="flex gap-4">
+        <div className="sm:flex gap-4">
           <span className="flex gap-2 items-center">
             <img src={ExperienceImg} alt="" className="w-4 h-4" />
             Experience {""}
