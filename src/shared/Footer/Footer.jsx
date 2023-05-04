@@ -30,9 +30,7 @@ const Footer = () => {
         <div>
           <h4 className="text-white text-2xl">Contact</h4>
           <ul className="text-slate-300 flex flex-col gap-4 mt-4">
-            <a className="link link-hover">
-              27 West 24th St New York, NY 10010
-            </a>
+            <a className="link link-hover">Dhaka, Bangladesh</a>
             <a className="link link-hover">877 . 485 . 0700</a>
             <a className="link link-hover">hello@examle.com</a>
           </ul>
